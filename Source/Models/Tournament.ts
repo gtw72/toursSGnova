@@ -108,7 +108,7 @@ const TournamentSchema = new Schema<ITournament>({
   ],
 });
 
-/*TournamentSchema.pre("save", function (next) {
+TournamentSchema.pre("save", function (next) {
   const TotalTeams = this.MaxInvites / this.PartySize;
   let TeamsRemaining = TotalTeams;
   let CalculatedRounds = 0;
@@ -120,7 +120,7 @@ const TournamentSchema = new Schema<ITournament>({
 
   this.RoundCount = CalculatedRounds;
   next();
-});*/
+});
 
 export type TournamentInput = {
   CurrentInvites: number;

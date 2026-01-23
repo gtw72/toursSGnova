@@ -24,3 +24,24 @@ export const E_Lockdown = new ApiError(403, "This resource is locked. Come back 
 export const E_ValidationGeneric = new ApiError(400, "Validation failed.");
 
 export const E_MissingHeaders = new ApiError(400, "A required header is missing.");
+
+export class ValidationError extends Error {
+  constructor(message: string) {
+    super(message);
+    this.name = 'ValidationError';
+  }
+}
+
+export class AuthenticationError extends Error {
+  constructor(message: string) {
+    super(message);
+    this.name = 'AuthenticationError';
+  }
+}
+
+export class AuthorizationError extends Error {
+  constructor(message: string) {
+    super(message);
+    this.name = 'AuthorizationError';
+  }
+}

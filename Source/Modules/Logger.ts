@@ -1,6 +1,5 @@
 import { gray, red, green, yellow, magenta } from "colorette";
 import { IS_DEBUG, PROJECT_NAME } from "./Constants";
-import { Request, Response, NextFunction } from "express";
 
 const ANSI_RESET = "\x1b[0m";
 const SUPERSCRIPT_MAP: Record<string, string> = {
@@ -150,17 +149,4 @@ export function warn(Content: string, Prefix = PROJECT_NAME): void {
 export function dbg(Content: string, Prefix = PROJECT_NAME): void {
   if (!IS_DEBUG) return;
   log(Content, `DEBUG | ${Prefix}`, magenta);
-}
-
-export function logRequest(req: Request, res: Response, next: NextFunction): void {
-  const start = Date.now();
-  res.on('finish', () => {
-    const duration = Date.now() - start;
-    const method = req.method;
-    const path = req.path;
-    const status = res.statusCode;
-    const colorFn = status >= 400 ? red : status >= 300 ? yellow : green;
-    log(`${method} ${path} ${status} - ${duration}ms`, "REQ", colorFn);
-  });
-  next();
 }

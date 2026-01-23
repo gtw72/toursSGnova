@@ -1,7 +1,6 @@
 import rateLimit from "express-rate-limit";
 import { mongoose } from "../../Handlers/Server";
 import { Router } from "express";
-import { createResponse } from "../../Modules/Extensions";
 const App = Router();
 
 const RateLimiter = rateLimit({
@@ -9,10 +8,6 @@ const RateLimiter = rateLimit({
   max: 20,
   standardHeaders: true,
   legacyHeaders: false,
-});
-
-App.get("/health", (_Req, Res) => {
-  Res.json(createResponse(0, "OK", { serverTime: new Date().toISOString() }));
 });
 
 App.get("/health/check", RateLimiter, async (_Req, Res) => {

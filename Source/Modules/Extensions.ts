@@ -39,12 +39,3 @@ export function GeneratePrizepoolId(): bigint {
   const random = BigInt(Math.floor(Math.random() * Number(range)));
   return min + random;
 }
-
-export function createResponse(code: number, message: string, data: any = {}): object {
-  return {
-    code,
-    message,
-    data,
-    timestamp: new Date().toISOString()
-  };
-}

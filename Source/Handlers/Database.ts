@@ -167,7 +167,12 @@ export async function CreateTournament(tournamentData: TournamentInput) {
   });
 
   const saved = await tournament.save();
-  await SendWebhook(saved);
+
+  // Send webhook asynchronously to not block tournament creation
+  SendWebhook(saved).catch((err) => {
+    console.error("Webhook failed:", err);
+  });
+
   return saved;
 }
 

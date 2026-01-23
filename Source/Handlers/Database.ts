@@ -59,7 +59,7 @@ async function SendWebhook(tournament: any): Promise<void> {
         components: [
           {
             type: 10,
-            content: `@everyone\n\n<:Tournament:1446241761449087088> - A new **Classic Tournament** has been created on **StumbleCorp**`,
+            content: `@everyone\n\n<:trophy_icon:1452350013069066471> - A new **Classic Tournament** has been created on ***StumbleLegacy <:StumbleLegacy:1428834520039293038> ***`,
           },
         ],
         accessory: {
@@ -76,13 +76,13 @@ async function SendWebhook(tournament: any): Promise<void> {
       },
       {
         type: 10,
-        content: `<:Dot:1430987394555052255> Tournament Name: **${
+        content: `<:Dot:1464056851112136724> Tournament Name: **${
           tournament.TournamentName
-        }**\n<:Dot:1430987394555052255> Region: **${tournament.Region.toUpperCase()}**\n<:Dot:1430987394555052255> Emotes: **${emotesText}**\n<:Dot:1430987394555052255> Tournament Mode: **${modeText}**\n<:Dot:1430987394555052255> Tournament Max Invites: **${
+        }**\n<:Dot:1464056851112136724> Region: **${tournament.Region.toUpperCase()}**\n<:Dot:1464056851112136724> Emotes: **${emotesText}**\n<:Dot:1464056851112136724> Tournament Mode: **${modeText}**\n<:Dot:1464056851112136724> Tournament Max Invites: **${
           tournament.MaxInvites
-        }**\n<:Dot:1430987394555052255> Tournament Phases: **${
+        }**\n<:Dot:1464056851112136724> Tournament Phases: **${
           tournament.Phases?.length || 0
-        }**\n<:Dot:1430987394555052255> Signup Opens: <t:${signupTimestamp}:R>\n<:Dot:1430987394555052255> Tournament Starts: <t:${startTimestamp}:R>\n\n`,
+        }**\n<:Dot:1464056851112136724> Signup Opens: <t:${signupTimestamp}:R>\n<:Dot:1464056851112136724> Tournament Starts: <t:${startTimestamp}:R>\n\n`,
       },
       {
         type: 14,
@@ -98,16 +98,16 @@ async function SendWebhook(tournament: any): Promise<void> {
             ? phase.Maps.map((sceneId: string) => getMapFriendlyName(sceneId)).join(", ")
             : "NA";
 
-        let phaseContent = `🪙 - Phase ${index + 1}: **${phaseTypeName}**\n`;
+        let phaseContent = `<:star:1451636692036354240> - Phase ${index + 1}: **${phaseTypeName}** <:star:1451636692036354240>\n`;
 
         if (phase.MaxTeams) {
-          phaseContent += `<:Dot:1430987394555052255> Max Teams: **${phase.MaxTeams}**\n`;
+          phaseContent += `<:Dot:1464056851112136724> Max Teams: **${phase.MaxTeams}**\n`;
         }
 
-        phaseContent += `<:Dot:1430987394555052255> Maps: **${mapNames}**\n`;
+        phaseContent += `<:Dot:1464056851112136724> Maps: **${mapNames}**\n`;
 
         if (phase.RoundCount) {
-          phaseContent += `<:Dot:1430987394555052255> Rounds: **${phase.RoundCount}**\n`;
+          phaseContent += `<:Dot:1464056851112136724> Rounds: **${phase.RoundCount}**\n`;
         }
 
         if (phase.GroupCount && phase.GroupCount > 1) {

@@ -59,7 +59,7 @@ async function SendWebhook(tournament: any): Promise<void> {
         components: [
           {
             type: 10,
-            content: `@everyone\n\n<:trophy_icon:1452350013069066471> - A new **Classic Tournament** has been created on ***StumbleLegacy <:StumbleLegacy:1428834520039293038> ***`,
+            content: `@everyone\n\n<:sgclassic:1463203152487518322> - A new **Classic Tournament** has been created on ***StumbleClassic <:sgclassic:1463203152487518322> ***`,
           },
         ],
         accessory: {
@@ -67,7 +67,7 @@ async function SendWebhook(tournament: any): Promise<void> {
           media: {
             url:
               tournament.TournamentImage ||
-              "https://media.discordapp.net/attachments/1443664836566188112/1446237252207378565/IMG_9140.jpg?ex=6933e9a6&is=69329826&hm=6dadda7f48d8340d3d1e8b46040e1870e321b0a374454252943a1a9923e4a0ec&=&format=webp&width=939&height=939",
+              "https://media.discordapp.net/attachments/1462880675320434780/1464744114850631793/f468e024b96045fdb7d2ba3ae3566a1b.png?ex=697694c2&is=69754342&hm=d1a24ed6074e190efbbf836a26d31e54759ce9ed67d1685017d705e0dd62527e&=&format=webp&quality=lossless&width=440&height=440",
           },
         },
       },
@@ -76,13 +76,13 @@ async function SendWebhook(tournament: any): Promise<void> {
       },
       {
         type: 10,
-        content: `<:Dot:1464056851112136724> Tournament Name: **${
+        content: `<:Dot:1464744731593544013> Tournament Name: **${
           tournament.TournamentName
-        }**\n<:Dot:1464056851112136724> Region: **${tournament.Region.toUpperCase()}**\n<:Dot:1464056851112136724> Emotes: **${emotesText}**\n<:Dot:1464056851112136724> Tournament Mode: **${modeText}**\n<:Dot:1464056851112136724> Tournament Max Invites: **${
+        }**\n<:Dot:1464744731593544013> Region: **${tournament.Region.toUpperCase()}**\n<:Dot:1464744731593544013> Emotes: **${emotesText}**\n<:Dot:1464744731593544013> Tournament Mode: **${modeText}**\n<:Dot:1464744731593544013> Tournament Max Invites: **${
           tournament.MaxInvites
-        }**\n<:Dot:1464056851112136724> Tournament Phases: **${
+        }**\n<:Dot:1464744731593544013> Tournament Phases: **${
           tournament.Phases?.length || 0
-        }**\n<:Dot:1464056851112136724> Signup Opens: <t:${signupTimestamp}:R>\n<:Dot:1464056851112136724> Tournament Starts: <t:${startTimestamp}:R>\n\n`,
+        }**\n<:Dot:1464744731593544013> Signup Opens: <t:${signupTimestamp}:R>\n<:Dot:1464744731593544013> Tournament Starts: <t:${startTimestamp}:R>\n\n`,
       },
       {
         type: 14,
@@ -98,20 +98,20 @@ async function SendWebhook(tournament: any): Promise<void> {
             ? phase.Maps.map((sceneId: string) => getMapFriendlyName(sceneId)).join(", ")
             : "NA";
 
-        let phaseContent = `<:star:1451636692036354240> - Phase ${index + 1}: **${phaseTypeName}** <:star:1451636692036354240>\n`;
+        let phaseContent = `<:sgclassic:1463203152487518322> - Phase ${index + 1}: **${phaseTypeName}** <:sgclassic:1463203152487518322>\n`;
 
         if (phase.MaxTeams) {
-          phaseContent += `<:Dot:1464056851112136724> Max Teams: **${phase.MaxTeams}**\n`;
+          phaseContent += `<:Dot:1464744731593544013> Max Teams: **${phase.MaxTeams}**\n`;
         }
 
-        phaseContent += `<:Dot:1464056851112136724> Maps: **${mapNames}**\n`;
+        phaseContent += `<:Dot:1464744731593544013> Maps: **${mapNames}**\n`;
 
         if (phase.RoundCount) {
-          phaseContent += `<:Dot:1464056851112136724> Rounds: **${phase.RoundCount}**\n`;
+          phaseContent += `<:Dot:1464744731593544013> Rounds: **${phase.RoundCount}**\n`;
         }
 
         if (phase.GroupCount && phase.GroupCount > 1) {
-          phaseContent += `<:Dot:1430987394555052255> Passing Teams: **${phase.GroupCount}**\n`;
+          phaseContent += `<:Dot:1464744731593544013> Passing Teams: **${phase.GroupCount}**\n`;
         }
 
         components.push({
